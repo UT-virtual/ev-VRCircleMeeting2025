@@ -1,0 +1,362 @@
+/*
+ * 全国学生VRサークル活動報告大会 2025 - カスタムスタイルシート
+ */
+
+/* --- 1. 変数定義と基本設定 --- */
+:root {
+    --dark-bg: #1a202c;         /* ダークネイビー */
+    --light-bg: #ffffff;        /* ホワイト */
+    --light-gray-bg: #f7fafc;  /* ライトグレー */
+    
+    --primary-text-dark: #e2e8f0;
+    --secondary-text-dark: #a0aec0;
+
+    --primary-text-light: #2d3748;
+    --secondary-text-light: #718096;
+
+    --accent-color: #38bdf8;        /* スカイブルー */
+    --accent-hover: #0ea5e9;
+    --youtube-color: #FF0000;
+
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Noto Sans JP', sans-serif;
+}
+
+html {
+    scroll-padding-top: 70px; /* ナビゲーションバーの高さ */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--light-bg);
+    color: var(--primary-text-light);
+    font-size: 16px; /* 基本のフォントサイズを明示 */
+    line-height: 1.7; /* 行間を調整 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- 2. ナビゲーションバー --- */
+.navbar {
+    background-color: rgba(26, 32, 44, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 0.75rem 0;
+    transition: background-color 0.3s ease-in-out;
+}
+.navbar-brand {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+.navbar .nav-link {
+    font-weight: 500;
+    color: var(--primary-text-dark);
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+    padding: 0.5rem 1rem;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    opacity: 1;
+}
+
+/* --- 3. ヒーローセクション --- */
+.hero-section-separated {
+    /* このセクション全体の背景は、コンテンツエリアの色と同じにしておく */
+    background-color: var(--dark-bg); 
+    padding-bottom: 5rem; /* セクション下部に余白を追加 */
+}
+
+.key-visual-area {
+    height: 55vh; /* 画面の高さの55%をキービジュアル領域に */
+    min-height: 400px; /* 最小の高さを確保 */
+    background-image: url('images/keyvisual2025.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 0 30px 30px; /* 下の角を丸くする */
+}
+.hero-content { position: relative; z-index: 1; }
+.hero-content h1 { font-family: var(--font-heading); font-weight: 700; line-height: 1.3; }
+.hero-content .lead { font-size: 1.5rem; font-weight: 600; color: var(--accent-color); }
+.hero-content .lead-small { max-width: 600px; margin: 0 auto; color: var(--primary-text-dark); opacity: 0.9; }
+
+.btn-venue, .btn-youtube {
+    font-weight: 700; /* 太字をやめ、ウェイトで調整 */
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid rgba(255,255,255,0.7);
+    color: white;
+    transition: all 0.2s ease;
+}
+.btn-venue:hover {
+    background-color: white;
+    color: var(--dark-bg);
+    border-color: white;
+}
+.btn-youtube {
+    border-color: var(--youtube-color);
+}
+.btn-youtube:hover {
+    background-color: var(--youtube-color);
+    border-color: var(--youtube-color);
+    color: white;
+}
+.btn-venue i, .btn-youtube i { margin-right: 0.5rem; }
+
+/* --- 4. セクション共通スタイル --- */
+.section-light { background-color: var(--light-bg); color: var(--primary-text-light); padding: 5rem 0; }
+.section-dark { background-color: var(--dark-bg); color: var(--primary-text-dark); padding: 5rem 0; }
+.section-title { font-family: var(--font-heading); font-weight: 700; font-size: 2.5rem; margin-bottom: 3rem; text-align: center; }
+.text-accent { color: var(--accent-color) !important; text-decoration: none; font-weight: 700; }
+.text-accent:hover { color: var(--accent-hover) !important; }
+p, li { color: var(--secondary-text-light); }
+.section-dark p, .section-dark li { color: var(--secondary-text-dark); }
+h3, h4 { font-family: var(--font-heading); font-weight: 600; }
+.section-dark h3, .section-dark h4 { color: white; }
+
+/* --- 5. About Event (タブUI) --- */
+.nav-tabs { border-bottom: 2px solid #dee2e6; }
+.nav-tabs .nav-link {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--secondary-text-light);
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 0.75rem 1.5rem;
+}
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+    color: var(--accent-color);
+    background-color: transparent;
+    border-color: var(--accent-color);
+}
+.tab-content { padding-top: 2.5rem; }
+.info-box-wrapper ul { padding-left: 20px; }
+.info-box-wrapper li { margin-bottom: 0.5rem; }
+.info-box {
+    background-color: var(--light-gray-bg);
+    border-left: 4px solid var(--accent-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 4px;
+}
+.info-box p { margin-bottom: 0; }
+.info-box-title { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--primary-text-light);}
+
+/* --- 6. Timetable --- */
+.timetable { border-radius: 8px; overflow: hidden; }
+.timetable th, .timetable td { padding: 1rem; vertical-align: middle; }
+.timetable th { width: 35%; text-align: right; font-weight: 600; color: var(--accent-color); }
+
+/* --- 7. Venue (会場案内) --- */
+.venue-card {
+    background-color: var(--light-gray-bg);
+    padding: 2rem;
+    border-radius: 8px;
+    height: 100%;
+}
+
+/* --- 8. Participants --- */
+.participant-card {
+    display: block;
+    text-decoration: none;
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    height: 100%;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+.participant-card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255,255,255,0.1);
+}
+.participant-logo-wrapper {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+.participant-card .clogo {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+.participant-card .card-text {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--primary-text-dark);
+    margin: 0;
+}
+
+/* --- 9. Guest --- */
+.guest-photo {
+    width: 150px;
+    height: 150px;
+    border: 4px solid var(--accent-color);
+    object-fit: cover;
+}
+.guest-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+.guest-title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+.guest-bio {
+    color: var(--secondary-text-light);
+}
+
+/* --- 10. Archive --- */
+.archive-card {
+    display: block;
+    background-color: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--primary-text-dark);
+    height: 100%;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+.archive-card:hover {
+    background-color: rgba(255,255,255,0.1);
+    transform: translateY(-5px);
+    color: white;
+}
+.archive-card h4 { color: var(--accent-color); }
+.archive-card p { margin-bottom: 0; color: var(--secondary-text-dark); }
+
+/* --- 11. フッター --- */
+#footer { border-top: 1px solid rgba(255, 255, 255, 0.1); }
+.social-icons .social-icon { font-size: 1.5rem; color: var(--secondary-text-dark); margin: 0 0.75rem; transition: color 0.2s ease, transform 0.2s ease; }
+.social-icons .social-icon:hover { color: white; transform: scale(1.1); }
+#footer .copyright, #footer .copyright a { color: var(--secondary-text-dark); font-size: 0.875rem; text-decoration: none; }
+#footer .copyright a:hover { color: white; }
+#footer .last-updated { font-size: 0.75rem; color: #718096; margin-top: 0.5rem; }
+
+/* --- 12. その他ボタン --- */
+.btn-primary {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    font-weight: 700;
+    padding: 0.75rem 2rem;
+    transition: all 0.2s ease-in-out;
+}
+.btn-primary:hover {
+    background-color: var(--accent-hover);
+    border-color: var(--accent-hover);
+    transform: translateY(-2px);
+}
+.btn-outline-primary {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    border-width: 2px;
+    font-weight: 700;
+}
+.btn-outline-primary:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* XRプレゼンターカードのデザイン */
+.presenter-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+    height: 100%;
+}
+.presenter-name {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: #333;
+}
+.presenter-work-title {
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* 運営・協賛セクションのデザイン */
+.sponsor-logo {
+    max-height: 80px; /* ロゴの高さを調整 */
+    margin-bottom: 10px;
+    filter: grayscale(100%); /* ロゴを白黒で統一感を出す */
+    transition: filter 0.3s ease; /* アニメーション効果 */
+}
+
+/* マウスカーソルを乗せたらカラーにする */
+.sponsor-logo:hover {
+    filter: grayscale(0%);
+}
+
+.sponsor-role {
+    font-size: 0.9rem;
+    color: #6c757d; /* 少し薄いグレー */
+    font-weight: bold;
+}
+
+/* トップページの開催日見出しのデザイン */
+.day-heading {
+    color: #fff;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5); /* 文字を読みやすくするための影 */
+}
+
+/* --- ヒーローセクション用スタイル --- */
+.hero-content-area {
+    background-color: var(--dark-bg);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    /* キービジュアルに少し重なるように、マイナスマージンで引き上げる */
+    margin-top: -60px; 
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* 立体感を出すための影 */
+}
+
+.hero-content-area h1 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+/* XRプレゼンターカードの画像スタイル (修正版) */
+#xr-presenters .presenter-card .presenter-image {
+    display: block; /* 画像をブロック要素として扱う */
+    width: 100%; /* 親要素の幅いっぱいに広がる */
+    max-width: 100%; /* 親要素の幅を決して超えないようにする */
+    height: 260px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    background-color: #e2e8f0;
+}
+
+/* 共催団体のテキストボタンのデザイン */
+.btn-sponsor {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem 0.5rem;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--accent-color);
+    background-color: transparent;
+    transition: all 0.2s ease;
+    min-height: 80px; /* ロゴの高さと合わせる */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-sponsor:hover {
+    background-color: var(--accent-color);
+    color: white;
+}
